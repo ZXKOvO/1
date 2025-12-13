@@ -7,8 +7,9 @@
 
 // Change Log:
 //     [v1.1] Wei Gong open-src@qq.com   2025-12-12 17:57:41
-//         * simulating student course registration, viewing course enrollment lists, checking class schedules
-
+//         * simulating student course registration, viewing course enrollment lists
+//     [v1.2] Wei Gong open-src@qq.com   2025-12-12 18:07:17
+//         * simulating view student schedule
 import registrar;
 import std;
 
@@ -41,6 +42,10 @@ int main()
     system().courseRoster("CS101");
     system().courseRoster("CS201");
     system().courseRoster("MATH101");
+
+    system().studentSchedule("S001");
+
+    system().studentSchedule("S003");
 
     return 0;
 }

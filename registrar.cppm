@@ -8,9 +8,12 @@
 // Change Log:
 //     [v1.1] Wei Gong open-src@qq.com   2025-12-12
 //         * added the singleton interface Registrar::singleton().
-//     [v1.1] Wei Gong open-src@qq.com   2025-12-12
+//     [v1.2] Wei Gong open-src@qq.com   2025-12-12
 //         * added the implementation of Registrar class
 //         * added the implementation of Student-Course object interactions
+//     [v1.3] Wei Gong open-src@qq.com   2025-12-12 18:04:07
+//         * added Registar::studentSchedule()
+//         * added the implementation of Student::schedule
 
 export module registrar;
 export import :student;
@@ -24,6 +27,7 @@ export class Registrar
 public:
     static Registrar& singleton();  //static function member
     void studentEnrollsInCourse(string sid, string cid);
+    void studentSchedule(const string& sid);
     void courseRoster(string cid);
     void initialize();
 
@@ -49,6 +53,12 @@ void Registrar::studentEnrollsInCourse(string sid, string cid){
     if (student && course) {
         student->enrollsIn(course);
     }
+}
+
+void Registrar::studentSchedule(const string &sid)
+{
+    auto s = findStudentById(sid);
+    print("{}\n",s->schedule());
 }
 
 void Registrar::courseRoster(string cid){
@@ -101,3 +111,11 @@ string Course::roster(){
     return rst;
 }
 
+string Student::schedule()
+{
+    auto s = format("{}'s schedule:\n", m_name);
+    for(auto &c: _courses){
+        s += c->info();
+    }
+    return s;
+}

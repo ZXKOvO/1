@@ -8,8 +8,10 @@
 // Change Log:
 //     [v1.1] Wei Gong open-src@qq.com   2025-12-12
 //         * added static data member 'totalCount': counts all Course objects in the system.
-//     [v1.1] Wei Gong open-src@qq.com   2025-12-12
+//     [v1.2] Wei Gong open-src@qq.com   2025-12-12
 //         * added the implementation of the Course class.
+//     [v1.3] Wei Gong open-src@qq.com   2025-12-12 18:02:14
+//         * added Course::info()
 
 export module registrar:course;
 import std;
@@ -23,6 +25,7 @@ public:
 
     bool acceptEnrollment(class Student* student);
     string roster();
+    string info();
     bool hasId(string id);
 private:
     string m_name;
@@ -53,6 +56,11 @@ bool Course::acceptEnrollment(Student *student){
     }
     return false;
 }
+
+string Course::info(){
+    return format("{}   {}\n", m_id, m_name);
+}
+
 
 bool Course::hasId(string id){
     return id == m_id;
