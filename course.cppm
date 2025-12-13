@@ -5,6 +5,10 @@
 
 // Only provides class interfaces, no implementations.
 
+// Change Log:
+//     [v1.1] Wei Gong open-src@qq.com   2025-12-12
+//         * added static data member 'totalCount': counts all Course objects in the system.
+
 export module registrar:course;
 import std;
 
@@ -22,6 +26,7 @@ private:
     string m_name;
     string m_id;
     short m_credit;
+    static int cm_totalCount;  // static data member
 
     vector<class Student*> _students;
 };

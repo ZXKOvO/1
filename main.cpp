@@ -10,10 +10,9 @@ import std;
 
 int main()
 {
-    Registrar system;
-
-    system.initialize();
-    system.studentEnrollsInCourse("S001", "CS101");
+    Registrar::singleton().initialize();
+    Registrar::singleton().
+            studentEnrollsInCourse("S001", "CS101");
 
     Student s = {"S001", "Thomas"};
     Course c = {"CS101", "C Programming"};
